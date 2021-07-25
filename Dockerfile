@@ -6,4 +6,5 @@ COPY ./ ./
 CMD ["yarn", "build"]
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/src/app /usr/share/nginx/html

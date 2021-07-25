@@ -10,7 +10,19 @@ before_install:
   - docker build -t noggong/exam-comment -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true noggong/exam-comment yarn test -- coverage
+  - docker run -e CI=true noggong/exam-comment
+
+deploy:
+  provide: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "uncham"
+  env: "Uncham-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-084772380483"
+  bucket_path: "uncham"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 
 after_success:
   - echo "Test success"
