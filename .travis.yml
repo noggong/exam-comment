@@ -14,15 +14,12 @@ script:
 
 deploy:
   provide: elasticbeanstalk
-  region: "ap-northeast-2"
-  app: "uncham"
-  env: "Uncham-env"
-  bucket_name: "elasticbeanstalk-ap-northeast-2-084772380483"
-  bucket_path: "uncham"
+  region: ap-northeast-2
+  app: uncham
+  env: Uncham-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-084772380483
+  bucket_path: uncham
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
-
-after_success:
-  - echo "Test success"
