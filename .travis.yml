@@ -7,7 +7,7 @@ services:
 
 before_install:
   - echo "starting Creating an image with dockerfile"
-  - docker build -t noggong/exam-comment -f Dockerfile.dev .
+  - docker build -t noggong/exam-comment -f Dockerfile .
 
 script:
   - docker run -e CI=true noggong/exam-comment
