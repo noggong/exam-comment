@@ -10,6 +10,8 @@ before_install:
   - docker build -t noggong/exam-comment .
 
 script:
+  - npm install --global yarn
+  - yarn --version
   - docker run -e CI=true noggong/exam-comment yarn test help
 
 deploy:
